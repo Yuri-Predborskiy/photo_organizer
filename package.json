@@ -1,0 +1,17 @@
+{
+  "name": "photo_organizer",
+  "version": "1.0",
+  "description": "photo organizer tool for merging photos from different sources via renaming files",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuri Predborski",
+  "license": "ISC",
+  "dependencies": {
+    "exifreader": "^2.5.0",
+    "jdataview": "^2.5.0",
+    "moment": "^2.22.2",
+    "xmldom": "^0.1.27"
+  }
+}
