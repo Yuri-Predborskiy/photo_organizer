@@ -22,8 +22,14 @@ function getDateTimeString(filename, timeShift, format) {
 function getDateTimeOriginal(filename) {
     try {
         let data = fs.readFileSync(filename);
-        const tags = ExifReader.load(data.buffer);
-        return tags['DateTimeOriginal'].description;
+        let tags;
+        // if exif exists - read data, otherwise return original file name, it will turn into invalid data
+        try {
+            tags = ExifReader.load(data.buffer);
+        } catch(e) {
+            tags = {};
+        }
+        return tags['DateTimeOriginal'] ? tags['DateTimeOriginal'].description : 'original-' + filename;
     }
     catch (error) {
         console.error(error);
